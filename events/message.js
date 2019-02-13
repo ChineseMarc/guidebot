@@ -6,11 +6,11 @@ module.exports = async (client, message) => {
   // It's good practice to ignore other bots. This also makes your bot ignore itself
   // and not get into a spam loop (we call that "botception").
   if (message.author.bot) return;
-
   // Grab the settings for this server from Enmap.
   // If there is no guild, get default conf (DMs)
+  const settings;
   if (message.guild) {
-    let settings = message.settings = client.getSettings(message.guild.id);
+    settings = message.settings = client.getSettings(message.guild.id);
   } else {
     settings = client.config.defaultSettings;
   }
